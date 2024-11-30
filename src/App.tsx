@@ -1,20 +1,20 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { ArrowLeftRight } from 'lucide-react';
-import { LanguageSelector } from './components/LanguageSelector';
-import { TextArea } from './components/TextArea';
-import { LoadingSpinner } from './components/LoadingSpinner';
-import { Header } from './components/Header';
-import { useTranslation } from './hooks/useTranslation';
-import { useTheme } from './hooks/useTheme';
-import { useLocation } from './hooks/useLocation';
+import React, { useState, useEffect, useCallback } from "react";
+import { ArrowLeftRight } from "lucide-react";
+import { LanguageSelector } from "./components/LanguageSelector";
+import { TextArea } from "./components/TextArea";
+import { LoadingSpinner } from "./components/LoadingSpinner";
+import { Header } from "./components/Header";
+import { useTranslation } from "./hooks/useTranslation";
+import { useTheme } from "./hooks/useTheme";
+import { useLocation } from "./hooks/useLocation";
 
 function App() {
   const { isDark, setIsDark } = useTheme();
   const userLanguage = useLocation();
-  const [sourceText, setSourceText] = useState('');
-  const [translatedText, setTranslatedText] = useState('');
-  const [sourceLang, setSourceLang] = useState('en');
-  const [targetLang, setTargetLang] = useState('es');
+  const [sourceText, setSourceText] = useState("");
+  const [translatedText, setTranslatedText] = useState("");
+  const [sourceLang, setSourceLang] = useState("en");
+  const [targetLang, setTargetLang] = useState("es");
   const { translate, isLoading, error } = useTranslation();
 
   useEffect(() => {
@@ -28,7 +28,7 @@ function App() {
       const result = await translate(sourceText, sourceLang, targetLang);
       setTranslatedText(result);
     } else {
-      setTranslatedText('');
+      setTranslatedText("");
     }
   }, [sourceText, sourceLang, targetLang, translate]);
 
@@ -45,7 +45,9 @@ function App() {
   }, [handleTranslation]);
 
   return (
-    <div className={`min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 py-12 px-4 sm:px-6 lg:px-8 transition-colors duration-200`}>
+    <div
+      className={`min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 py-12 px-4 sm:px-6 lg:px-8 transition-colors duration-200`}
+    >
       <div className="max-w-4xl mx-auto">
         <Header isDark={isDark} onThemeToggle={() => setIsDark(!isDark)} />
 
@@ -105,8 +107,12 @@ function App() {
           )}
         </div>
 
-        <footer className="mt-8 text-center text-sm text-gray-500 dark:text-gray-400">
-          <p>Powered by MyMemory Translation API</p>
+        <div className="mt-6 text-center text-sm text-gray-500 dark:text-gray-400">
+          <p>Chrome extension coming soon!</p>
+        </div>
+
+        <footer className="mt-4 text-center text-sm text-gray-500 dark:text-gray-400">
+          <p>Made By ⚡️Bolt.new and 🌕 Ganesham Pajji</p>
         </footer>
       </div>
     </div>
