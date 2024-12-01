@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { ArrowLeftRight } from "lucide-react";
 import { LanguageSelector } from "./components/LanguageSelector";
 import { TextArea } from "./components/TextArea";
