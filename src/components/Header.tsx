@@ -1,4 +1,3 @@
-import React from "react";
 import { GlobeIcon } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
 import { Clock } from "./Clock";
