@@ -34,11 +34,12 @@ export function Clock({ isDark }: ClockProps) {
     <div className="flex items-center gap-2">
       <button
         onClick={() => setIs24Hour(!is24Hour)}
-        className={`flex items-center gap-2 px-3 py-2 rounded-lg transition-colors
+        className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all
+          backdrop-blur-md border border-opacity-20
           ${
             isDark
-              ? "bg-gray-700 hover:bg-gray-600 text-gray-200"
-              : "bg-gray-100 hover:bg-gray-200 text-gray-700"
+              ? "bg-gray-800/30 hover:bg-gray-700/40 text-gray-200 border-gray-600"
+              : "bg-white/30 hover:bg-white/40 text-gray-800 border-gray-300"
           }`}
       >
         <ClockIcon className="h-4 w-4" />

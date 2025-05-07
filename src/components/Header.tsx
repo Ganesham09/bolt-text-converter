@@ -19,7 +19,7 @@ export function Header({ isDark, onThemeToggle }: HeaderProps) {
       <h1 className="mt-3 text-3xl font-extrabold text-gray-900 dark:text-white sm:text-4xl">
         Browser Lingo
       </h1>
-      <p className="mt-2 text-lg text-gray-600 dark:text-gray-300">
+      <p className="mt-2 text-lg text-gray-600 dark:text-gray-300 px-4 py-2">
         Type your text and see it translated in real-time
       </p>
       <MarketingMessage isDark={isDark} />
