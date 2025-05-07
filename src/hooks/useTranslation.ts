@@ -6,6 +6,7 @@ import { getCachedTranslation, setCachedTranslation } from '../utils/cache';
 const RETRY_DELAY = 1000; // 1 second
 const MAX_RETRIES = 3;
 
+
 export function useTranslation() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);

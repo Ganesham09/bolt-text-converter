@@ -22,3 +22,8 @@ export const LANGUAGES: { code: string; name: string }[] = [
 ];
 
 export const MYMEMORY_API = 'https://api.mymemory.translated.net/get';
+export const GOOGLE_API = 'https://translation.googleapis.com/language/translate/v2';
+export const DEEPL_API = 'https://api-free.deepl.com/v2/translate';
+
+export const DEFAULT_API = MYMEMORY_API;
+

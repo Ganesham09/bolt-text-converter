@@ -4,6 +4,7 @@ import { LanguageSelector } from "./components/LanguageSelector";
 import { TextArea } from "./components/TextArea";
 import { LoadingSpinner } from "./components/LoadingSpinner";
 import { Header } from "./components/Header";
+import { Footer } from "./components/Footer";
 import { useTranslation } from "./hooks/useTranslation";
 import { useTheme } from "./hooks/useTheme";
 import { useLocation } from "./hooks/useLocation";
@@ -46,7 +47,7 @@ function App() {
 
   return (
     <div
-      className={`min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 py-12 px-4 sm:px-6 lg:px-8 transition-colors duration-200`}
+      className={`min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 py-12 px-4 sm:px-6 lg:px-8 transition-colors duration-200 font-typewriter`}
     >
       <div className="max-w-4xl mx-auto">
         <Header isDark={isDark} onThemeToggle={() => setIsDark(!isDark)} />
@@ -71,6 +72,7 @@ function App() {
                 onChange={setSourceText}
                 placeholder="Type your text here..."
                 isDark={isDark}
+                className="font-inter"
               />
             </div>
 
@@ -96,6 +98,7 @@ function App() {
                 placeholder="Translation will appear here..."
                 readOnly
                 isDark={isDark}
+                className="font-inter"
               />
             </div>
           </div>
@@ -108,12 +111,10 @@ function App() {
         </div>
 
         <div className="mt-6 text-center text-sm text-gray-500 dark:text-gray-400">
-          <p>Chrome extension coming soon!</p>
+          <p>Chrome extension coming soon! Made with ❤️ by Ganesham</p>
         </div>
 
-        <footer className="mt-4 text-center text-sm text-gray-500 dark:text-gray-400">
-          <p>Made By ⚡️Bolt.new and 🌕 Ganesham Pajji</p>
-        </footer>
+        <Footer isDark={isDark} />
       </div>
     </div>
   );

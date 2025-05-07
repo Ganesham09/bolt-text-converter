@@ -4,6 +4,7 @@ interface TextAreaProps {
   placeholder: string;
   readOnly?: boolean;
   isDark?: boolean;
+  className?: string;
 }
 
 export function TextArea({
@@ -12,6 +13,7 @@ export function TextArea({
   placeholder,
   readOnly = false,
   isDark,
+  className = "",
 }: TextAreaProps) {
   return (
     <textarea
@@ -34,7 +36,7 @@ export function TextArea({
             ? "hover:border-gray-500"
             : "hover:border-gray-300"
         }
-        border
+        border ${className}
       `}
     />
   );
