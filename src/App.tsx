@@ -5,6 +5,7 @@ import { TextArea } from "./components/TextArea";
 import { LoadingSpinner } from "./components/LoadingSpinner";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
+import { WorldMapBackground } from "./components/WorldMapBackground";
 import { useTranslation } from "./hooks/useTranslation";
 import { useTheme } from "./hooks/useTheme";
 import { useLocation } from "./hooks/useLocation";
@@ -47,9 +48,10 @@ function App() {
 
   return (
     <div
-      className={`min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 py-12 px-4 sm:px-6 lg:px-8 transition-colors duration-200 font-typewriter`}
+      className={`min-h-screen relative bg-gradient-to-b from-gray-50/80 to-gray-100/80 dark:from-gray-900/80 dark:to-gray-800/80 py-12 px-4 sm:px-6 lg:px-8 transition-colors duration-200 font-typewriter`}
     >
-      <div className="max-w-4xl mx-auto">
+      <WorldMapBackground isDark={isDark} />
+      <div className="max-w-4xl mx-auto relative z-10">
         <Header isDark={isDark} onThemeToggle={() => setIsDark(!isDark)} />
 
         {error && (
