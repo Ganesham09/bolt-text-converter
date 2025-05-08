@@ -4,7 +4,7 @@ interface FooterProps {
   isDark: boolean;
 }
 
-export function Footer({ isDark }: FooterProps) {
+export function Footer({  }: FooterProps) {
   return (
     <footer className="mt-12 border-t border-gray-200 dark:border-gray-800">
       <div className="max-w-4xl mx-auto px-4 py-8">
@@ -33,7 +33,7 @@ export function Footer({ isDark }: FooterProps) {
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Resources</h3>
             <ul className="space-y-2">
               <li><a href="/docs" className="text-sm text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400">Documentation <span className="text-xs text-indigo-500">(Coming Soon)</span></a></li>
-              <li><a href="/api" className="text-sm text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400">API Reference <span className="text-xs text-indigo-500">(Coming Soon)</span></a></li>
+              <li><a href="/https://mymemory.translated.net/" className="text-sm text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400">API Reference</a></li>
               <li><a href="/support" className="text-sm text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400">Support <span className="text-xs text-indigo-500">(Coming Soon)</span></a></li>
               <li><a href="/status" className="text-sm text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400">Status <span className="text-xs text-indigo-500">(Coming Soon)</span></a></li>
             </ul>
