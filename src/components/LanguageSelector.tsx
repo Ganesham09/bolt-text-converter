@@ -14,9 +14,9 @@ export function LanguageSelector({
   isDark,
 }: LanguageSelectorProps) {
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-1.5 sm:gap-2">
       <label
-        className={`text-sm font-medium ${
+        className={`text-xs sm:text-sm font-medium ${
           isDark ? "text-gray-200" : "text-gray-700"
         }`}
       >
@@ -25,7 +25,7 @@ export function LanguageSelector({
       <select
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className={`w-full rounded-md border py-2 px-3 shadow-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 transition-colors duration-200
+        className={`w-full rounded-md border py-1.5 sm:py-2 px-2 sm:px-3 text-sm sm:text-base shadow-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 transition-colors duration-200
           ${
             isDark
               ? "bg-gray-700 border-gray-600 text-gray-100"

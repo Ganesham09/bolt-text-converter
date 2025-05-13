@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 const languages = [
-  { text: 'ब्राउज़र भाषा', lang: 'hi' },
+  { text: 'ब्राउ़र भाषा', lang: 'hi' },
   { text: 'ブラウザ言語', lang: 'ja' },
   { text: '浏览器语言', lang: 'zh' },
   { text: 'لغة المتصفح', lang: 'ar' },
@@ -34,6 +34,19 @@ export function LanguageCycler() {
     return () => clearInterval(interval);
   }, [isAnimating]);
 
+  const renderText = () => {
+    const currentText = languages[currentIndex].text;
+    if (currentText === 'Browser Lingo') {
+      return (
+        <>
+          <span className="font-typewriter text-5xl sm:text-6xl text-gray-900 dark:text-white inline-block transform rotate-3 hover:rotate-0 transition-transform duration-300">Browser </span>
+          <span className="font-serif text-5xl sm:text-6xl text-emerald-400 dark:text-emerald-300 inline-block transform -rotate-3 hover:rotate-0 transition-transform duration-300 border-2 border-emerald-400 dark:border-emerald-300 rounded-lg px-2">Lingo</span>
+        </>
+      );
+    }
+    return currentText;
+  };
+
   return (
     <span 
       className="inline-block transition-all duration-200"
@@ -42,7 +55,7 @@ export function LanguageCycler() {
         fontFamily: languages[currentIndex].lang === 'zh' || languages[currentIndex].lang === 'ja' ? 'sans-serif' : 'inherit'
       }}
     >
-      {languages[currentIndex].text}
+      {renderText()}
     </span>
   );
 } 

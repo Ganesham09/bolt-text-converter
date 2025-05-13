@@ -46,23 +46,31 @@ function App() {
     return () => clearTimeout(debounceTimeout);
   }, [handleTranslation]);
 
+  useEffect(() => {
+    if (isDark) {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
+  }, [isDark]);
+
   return (
-    <div
-      className={`min-h-screen relative bg-gradient-to-b from-gray-50/80 to-gray-100/80 dark:from-gray-900/80 dark:to-gray-800/80 py-12 px-4 sm:px-6 lg:px-8 transition-colors duration-200 font-typewriter`}
-    >
+    <div className="min-h-screen relative bg-gradient-to-b from-gray-50/80 to-gray-100/80 dark:from-gray-900/80 dark:to-gray-800/80 py-6 sm:py-8 md:py-12 px-3 sm:px-4 md:px-6 lg:px-8 transition-colors duration-200 font-typewriter">
       <WorldMapBackground isDark={isDark} />
       <div className="max-w-4xl mx-auto relative z-10">
         <Header isDark={isDark} onThemeToggle={() => setIsDark(!isDark)} />
 
         {error && (
-          <div className="mb-4 p-4 bg-red-50 dark:bg-red-900/50 border border-red-200 dark:border-red-800 rounded-md">
-            <p className="text-red-600 dark:text-red-400">{error}</p>
+          <div className="mb-4 p-3 sm:p-4 bg-red-50 dark:bg-red-900/50 border border-red-200 dark:border-red-800 rounded-md">
+            <p className="text-sm sm:text-base text-red-600 dark:text-red-400">{error}</p>
           </div>
         )}
 
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="space-y-4">
+        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-3 sm:p-4 md:p-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
+            <div className="space-y-3 sm:space-y-4">
               <LanguageSelector
                 value={sourceLang}
                 onChange={setSourceLang}
@@ -74,11 +82,11 @@ function App() {
                 onChange={setSourceText}
                 placeholder="Type your text here..."
                 isDark={isDark}
-                className="font-inter"
+                className="font-inter min-h-[150px] sm:min-h-[200px]"
               />
             </div>
 
-            <div className="relative space-y-4">
+            <div className="relative space-y-3 sm:space-y-4">
               <div className="flex items-center justify-between">
                 <LanguageSelector
                   value={targetLang}
@@ -88,10 +96,10 @@ function App() {
                 />
                 <button
                   onClick={swapLanguages}
-                  className="mt-6 p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                  className="mt-6 p-1.5 sm:p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
                   title="Swap languages"
                 >
-                  <ArrowLeftRight className="h-5 w-5 text-gray-600 dark:text-gray-300" />
+                  <ArrowLeftRight className="h-4 w-4 sm:h-5 sm:w-5 text-gray-600 dark:text-gray-300" />
                 </button>
               </div>
               <TextArea
@@ -100,7 +108,7 @@ function App() {
                 placeholder="Translation will appear here..."
                 readOnly
                 isDark={isDark}
-                className="font-inter"
+                className="font-inter min-h-[150px] sm:min-h-[200px]"
               />
             </div>
           </div>
@@ -112,7 +120,7 @@ function App() {
           )}
         </div>
 
-        <div className="mt-6 text-center text-sm text-gray-500 dark:text-gray-400">
+        <div className="mt-4 sm:mt-6 text-center text-xs sm:text-sm text-gray-500 dark:text-gray-400">
           <p>Chrome extension coming soon! Made with ❤️ by Ganesham</p>
         </div>
 

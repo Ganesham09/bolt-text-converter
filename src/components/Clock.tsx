@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Clock as ClockIcon } from "lucide-react";
 
 interface ClockProps {
-  isDark: boolean;
+  isDark?: boolean;
 }
 
 // Common time zones with their labels
@@ -47,37 +47,38 @@ export function Clock({ isDark }: ClockProps) {
 
   return (
     <div className="flex items-center gap-2">
-      <div className="flex items-center gap-1.5">
-        <select
-          value={selectedTimeZone}
-          onChange={(e) => setSelectedTimeZone(e.target.value)}
-          className={`px-3 py-1.5 rounded-lg transition-all backdrop-blur-md border text-sm max-w-[180px]
-            ${
-              isDark
-                ? "bg-gray-800/30 hover:bg-gray-700/40 text-gray-200 border-gray-600/50 hover:border-gray-500/50"
-                : "bg-white/30 hover:bg-white/40 text-gray-800 border-gray-300/50 hover:border-gray-400/50"
-            }`}
-        >
-          {TIME_ZONES.map((tz) => (
-            <option key={tz.value} value={tz.value}>
-              {tz.label}
-            </option>
-          ))}
-        </select>
+      <div className="flex items-center gap-1">
+        <div className={`text-sm ${isDark ? "text-gray-100" : "text-gray-700"}`}>
+          {formatTime(time)}
+        </div>
         <button
           onClick={() => setIs24Hour(!is24Hour)}
-          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all
-            backdrop-blur-md border text-sm
-            ${
-              isDark
-                ? "bg-gray-800/30 hover:bg-gray-700/40 text-gray-200 border-gray-600/50 hover:border-gray-500/50"
-                : "bg-white/30 hover:bg-white/40 text-gray-800 border-gray-300/50 hover:border-gray-400/50"
-            }`}
+          className={`text-xs px-1.5 py-0.5 rounded border ${
+            isDark
+              ? "border-gray-800 text-gray-100 hover:bg-gray-800"
+              : "border-gray-300 text-gray-700 hover:bg-gray-100"
+          }`}
         >
-          <ClockIcon className="h-4 w-4" />
-          <span className="font-mono">{formatTime(time)}</span>
+          {is24Hour ? "24h" : "12h"}
         </button>
       </div>
+      <select
+        value={selectedTimeZone}
+        onChange={(e) => setSelectedTimeZone(e.target.value)}
+        className={`text-xs rounded-md border py-1 px-1.5 shadow-sm focus:outline-none focus:ring-1 focus:ring-gray-500 transition-colors duration-200 w-24
+          ${
+            isDark
+              ? "bg-gray-900 border-gray-800 text-gray-100"
+              : "bg-white border-gray-300 text-gray-700"
+          }
+        `}
+      >
+        {TIME_ZONES.map((tz) => (
+          <option key={tz.value} value={tz.value}>
+            {tz.label}
+          </option>
+        ))}
+      </select>
     </div>
   );
 }

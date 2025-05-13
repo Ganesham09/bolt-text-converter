@@ -8,6 +8,7 @@ export default {
         'poppins': ['Poppins', 'sans-serif'],
         'inter': ['Inter', 'sans-serif'],
         'typewriter': ['JetBrains Mono', 'monospace'],
+        'serif': ['Instrument Serif', 'serif'],
       },
       animation: {
         'fade-in-down': 'fade-in-down 0.5s ease-out',
